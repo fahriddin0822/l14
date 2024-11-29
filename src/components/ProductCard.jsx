@@ -9,7 +9,7 @@ export default function ProductCard({ product, grid }) {
 
   return (
     <div
-      className={`rounded-md bg-slate-600 w-[320px] p-3 shadow-xl h-[470px]  flex flex-col justify-between max-sm:w-[310px] ${
+      className={`rounded-md bg-gray-100 w-[320px] p-3 shadow-xl h-[470px]  flex flex-col justify-between max-sm:w-[310px] ${
         grid && "w-[100%]"
       }`}
     >
