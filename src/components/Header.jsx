@@ -3,7 +3,7 @@ import Container from "../style/Container";
 
 export default function Header() {
   return (
-    <header className="bg-gray-100 mb-8">
+    <header className="bg-gray-100 mb-8 sticky top-0 z-10">
       <Container>
         <nav className="flex justify-between py-3 items-center ml-4">
           <h2 className="mainTitle cursor-pointer">Shop</h2>
