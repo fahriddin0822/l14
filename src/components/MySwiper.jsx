@@ -28,6 +28,7 @@ function MySwiper() {
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={20}
       slidesPerView={1}
+      
       navigation
       breakpoints={{
         320: {
