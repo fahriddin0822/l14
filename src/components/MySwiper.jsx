@@ -13,40 +13,46 @@ function MySwiper() {
 
   useEffect(() => {
     async function get() {
-      const products = await getProducts();
-      setProducts(products);
+      try {
+        const products = await getProducts();
+        setProducts(products);
+      } catch (error) {
+        console.error("Failed to fetch products:", error);
+      }
     }
     get();
   }, []);
 
   return (
     <Swiper
-      // install Swiper modules
       modules={[Navigation, Pagination, Scrollbar, A11y]}
-      space={20}
-      slide={3}
+      spaceBetween={20}
+      slidesPerView={1}
       navigation
-      // onSwiper={(swiper) => console.log(swiper)}
       breakpoints={{
         320: {
-          slide: 1, 
-          space: 10,
+          slidesPerView: 1,
+          spaceBetween: 10,
         },
         768: {
-          slide: 2,
-          space: 15,
+          slidesPerView: 2,
+          spaceBetween: 15,
         },
         1024: {
-          slide: 3, 
-          space: 20,
+          slidesPerView: 3,
+          spaceBetween: 20,
         },
       }}
     >
       {products &&
-        products?.map((product) => (
+        products.map((product) => (
           <SwiperSlide key={product.id}>
             <div className="flex justify-center">
-              <ProductCard product={product} />
+              <img
+                src={product.image}
+                alt={`product: ${product.title}`}
+                className="object-contain w-full h-[200px] rounded-t-md"
+              />
             </div>
           </SwiperSlide>
         ))}
